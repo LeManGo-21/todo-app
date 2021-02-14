@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${task.title}"></title>
+</head>
+<body>
+    <h1 th:text="${task.title}"></h1>
+    <h2>Описание задачи</h2>
+    <p th:text="${task.description}"></p>
+    <br>
+    <h3>Дата начала исполнения задачи</h3>
+    <p th:text="${task.startDate}"></p>
+    <br>
+    <h3>Дата завершения исполнения задачи</h3>
+    <p th:text="${task.endDate}"></p>
+    <br>
+    <a th:href="@{/tasks/{id}/edit(id=${task.getId()})}"><button>Редактировать задачу</button></a>
+    <a th:href="@{/tasks/{id}/delete(id=${task.getId()})}"><button>Удалить задчу</button></a>
+    <br>
+    <br>
+    <a th:href="@{/tasks}"><button>К списку задач</button></a>
+
+
+</body>
+</html>

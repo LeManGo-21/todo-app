@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список задач</title>
+</head>
+<body>
+    <div th:each="task : ${tasks}">
+        <a th:href="@{/tasks/{id}(id=${task.getId()})}" th:text="${task.getTitle()}">task</a>
+    </div>
+    <br>
+    <p>
+        <a th:href="@{/tasks/new}"><button>Создать задчу</button></a>
+        <a th:href="@{/}"><button>На главную</button></a>
+    </p>
+</body>
+</html>

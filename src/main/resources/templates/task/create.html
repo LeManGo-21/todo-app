@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание задачи</title>
+</head>
+<body>
+    <h2>Создание новой задачи</h2>
+    <form action="#" th:action="@{/tasks/new}" th:object=${task} method="post" >
+        <label for="title">Название задачи</label>
+        <input type="text" th:field="*{title}" id="title" />
+        <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+        <br>
+        <br>
+        <label for="desc">Описание задачи</label>
+        <textarea id="desc" th:field="*{description}" cols="30" wrap="soft"></textarea>
+        <div style="color:red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+        <br>
+        <br>
+        <label for="date">Дата начала выполнения задачи</label>
+        <input type="text" th:value="${task.getStartDate()}" th:field="*{startDate}" id="date" />
+        <div style="color:red" th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"></div>
+        <br>
+        <br>
+        <label for="days">Количество дней для выполнения задачи</label>
+        <input type="text" th:field="*{daysToUse}" id="days"/>
+        <div style="color:red" th:if="${#fields.hasErrors('daysToUse')}" th:errors="*{daysToUse}"></div>
+        <br>
+        <br>
+        <input type="submit" value="Создать!">
+    </form>
+</body>
+</html>
